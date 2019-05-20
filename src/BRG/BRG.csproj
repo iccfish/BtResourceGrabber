@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B6D3D7C9-0D2C-484E-80D6-CFF6CDB992B2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BRG</RootNamespace>
+    <AssemblyName>BRG</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppContext.cs" />
+    <Compile Include="BrtUtility.cs" />
+    <Compile Include="Entities\DownloadTask.cs" />
+    <Compile Include="Entities\EnginePropertyCollection.cs" />
+    <Compile Include="Entities\FilterBehaviour.cs" />
+    <Compile Include="Entities\FilterRule.cs" />
+    <Compile Include="Entities\FilterRuleCollection.cs" />
+    <Compile Include="Entities\FilterSource.cs" />
+    <Compile Include="Entities\HashMark.cs" />
+    <Compile Include="Entities\HashMarkOptions.cs" />
+    <Compile Include="Entities\HashSiteMap.cs" />
+    <Compile Include="Entities\HistoryItem.cs" />
+    <Compile Include="Entities\INetDiskData.cs" />
+    <Compile Include="Entities\IResourceSearchInfo.cs" />
+    <Compile Include="Entities\IServiceInfo.cs" />
+    <Compile Include="Entities\IFileNode.cs" />
+    <Compile Include="Entities\IResourceInfo.cs" />
+    <Compile Include="Entities\NetDiskData.cs" />
+    <Compile Include="Entities\NetDiskType.cs" />
+    <Compile Include="Entities\Options.cs" />
+    <Compile Include="Entities\PreivewType.cs" />
+    <Compile Include="Entities\PreviewInfo.cs" />
+    <Compile Include="Entities\PreviewInfoStore.cs" />
+    <Compile Include="Entities\ProxyItem.cs" />
+    <Compile Include="Entities\QueueStatus.cs" />
+    <Compile Include="Entities\ResourceSearchInfo.cs" />
+    <Compile Include="Entities\ResourceType.cs" />
+    <Compile Include="Entities\ResourceVerifyInfo.cs" />
+    <Compile Include="Entities\RssRuleCollection.cs" />
+    <Compile Include="Entities\ServiceStatistics.cs" />
+    <Compile Include="Entities\SortType.cs" />
+    <Compile Include="Entities\SortTypeName.Designer.cs">
+      <DependentUpon>SortTypeName.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Entities\Statistics.cs" />
+    <Compile Include="Entities\TestStatus.cs" />
+    <Compile Include="Entities\ResourceEventArgs.cs" />
+    <Compile Include="Entities\TorrentMarkEventArgs.cs" />
+    <Compile Include="Entities\VerifyState.cs" />
+    <Compile Include="Security\ISecurityChecker.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\AddinBase.cs" />
+    <Compile Include="Service\CommonServiceInfo.cs" />
+    <Compile Include="Service\DownloadHistory.cs" />
+    <Compile Include="Service\IAddin.cs" />
+    <Compile Include="Service\IDataContext.cs" />
+    <Compile Include="Service\IFileConfigLoader.cs" />
+    <Compile Include="Service\IResourceContextMenuAddin.cs" />
+    <Compile Include="Service\IServiceBase.cs" />
+    <Compile Include="Service\ITorrentDownloadServiceProvider.cs" />
+    <Compile Include="Service\IResourceOperation.cs" />
+    <Compile Include="Service\IResourceProvider.cs" />
+    <Compile Include="Service\IResourceProcessor.cs" />
+    <Compile Include="Service\ISecurityCheck.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Entities\SortTypeName.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SortTypeName.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="extension.fishlee.net">
+      <Version>1.5.1</Version>
+    </PackageReference>
+    <PackageReference Include="network.fishlee.net">
+      <Version>2.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.2</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
