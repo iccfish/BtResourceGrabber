@@ -1,0 +1,3 @@
+[submodule "src/FSLib.FileFormats.TorrentFile"]
+	path = src/FSLib.FileFormats.TorrentFile
+	url = https://github.com/iccfish/FSLib.FileFormats.TorrentFile.git

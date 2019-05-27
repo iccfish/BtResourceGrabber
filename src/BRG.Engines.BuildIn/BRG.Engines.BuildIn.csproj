@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F7BCB0D0-14AE-489A-A58E-3405C49958A0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BRG.Engines.BuildIn</RootNamespace>
+    <AssemblyName>BRG.Engines.BuildIn</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DownloadProviders\BtCache.cs" />
+    <Compile Include="DownloadProviders\ExtraTorrentDownloadProvider.cs" />
+    <Compile Include="DownloadProviders\IsoHuntDownloadProvider.cs" />
+    <Compile Include="DownloadProviders\I_TorrentsDownloadProvder.cs" />
+    <Compile Include="DownloadProviders\MonovaDownloadProvider.cs" />
+    <Compile Include="DownloadProviders\Mp4BaDownloadProvider.cs" />
+    <Compile Include="DownloadProviders\RarbgDownloadProvider.cs" />
+    <Compile Include="DownloadProviders\SeedPeerDownloadProvider.cs" />
+    <Compile Include="DownloadProviders\SobtDownloadProvider.cs" />
+    <Compile Include="DownloadProviders\StoreBtDownloadProvider.cs" />
+    <Compile Include="DownloadProviders\TorCacheDownloadProvider.cs" />
+    <Compile Include="DownloadProviders\TorlockDownloadProvider.cs" />
+    <Compile Include="DownloadProviders\TorRageDownloadProvider.cs" />
+    <Compile Include="DownloadProviders\TorrentHoundDownloadProvider.cs" />
+    <Compile Include="DownloadProviders\TorrentKittyCnDownloadProvider.cs" />
+    <Compile Include="DownloadProviders\TorrentOrgCnDownloadProvider.cs" />
+    <Compile Include="DownloadProviders\TorrentProjectDownloadProvider.cs" />
+    <Compile Include="DownloadProviders\TorrentsNetDownloadProvider.cs" />
+    <Compile Include="DownloadProviders\ZoinkItDownloadProvider.cs" />
+    <Compile Include="HtmlExtensionMethods.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchProviders\BitSnoopSearchProvider.cs" />
+    <Compile Include="SearchProviders\BreadSearchProvider.cs" />
+    <Compile Include="SearchProviders\BtBookSearchProvider.cs" />
+    <Compile Include="SearchProviders\BtCheerySearchProvider.cs" />
+    <Compile Include="SearchProviders\BtDiggInfoSearchProvider.cs" />
+    <Compile Include="SearchProviders\BtKittySearchProvider.cs" />
+    <Compile Include="SearchProviders\BtlibrarySearchProvider.cs" />
+    <Compile Include="SearchProviders\BtSceneSearchProvider.cs" />
+    <Compile Include="SearchProviders\BtSpreadSearchServierProvider.cs" />
+    <Compile Include="SearchProviders\DiggBtSearchProvider.cs" />
+    <Compile Include="SearchProviders\Donkey4YouSearchProvider.cs" />
+    <Compile Include="SearchProviders\ExtraTorrentSearchProvider.cs" />
+    <Compile Include="SearchProviders\ICiliSearchProvider.cs" />
+    <Compile Include="SearchProviders\IsoHuntSearchProvider.cs" />
+    <Compile Include="SearchProviders\KickAssSearchProvider.cs" />
+    <Compile Include="SearchProviders\LimeTorrentsSearchProvider.cs" />
+    <Compile Include="SearchProviders\MonovaAdultSearchProvider.cs" />
+    <Compile Include="SearchProviders\MonovaSearchProvider.cs" />
+    <Compile Include="SearchProviders\Mp4BaSearchProvider.cs" />
+    <Compile Include="SearchProviders\RarbgSearchProvider.cs" />
+    <Compile Include="SearchProviders\SeedPeerSearchProvider.cs" />
+    <Compile Include="SearchProviders\SsbcSearchProvider.cs" />
+    <Compile Include="SearchProviders\ThePirateBaySearchProvider.cs" />
+    <Compile Include="SearchProviders\TorLockSearchProvider.cs" />
+    <Compile Include="SearchProviders\TorrentDownloadSearchProvider.cs" />
+    <Compile Include="SearchProviders\TorrentDownloadsSearchProvider.cs" />
+    <Compile Include="SearchProviders\TorrentHoundSearchProvider.cs" />
+    <Compile Include="SearchProviders\TorrentKittySearchProvider.cs" />
+    <Compile Include="SearchProviders\TorrentProjectSearchProvider.cs" />
+    <Compile Include="SearchProviders\TorrentsNetSearchProvider.cs" />
+    <Compile Include="SearchProviders\TorrentSo.cs" />
+    <Compile Include="SearchProviders\TorrentUsSearchProvider.cs" />
+    <Compile Include="SearchProviders\TorrentZSearchProvider.cs" />
+    <Compile Include="SearchProviders\TtmjSearchProvider.cs" />
+    <Compile Include="SiteSelfDownloadProvider.cs" />
+    <Compile Include="UI\Engines\Rarbg\BotCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Engines\Rarbg\BotCheck.Designer.cs">
+      <DependentUpon>BotCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Engines\Rarbg\RarbgConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Engines\Rarbg\RarbgConfig.Designer.cs">
+      <DependentUpon>RarbgConfig.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Engines\Rarbg\BotCheck.resx">
+      <DependentUpon>BotCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Engines\Rarbg\RarbgConfig.resx">
+      <DependentUpon>RarbgConfig.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_bitsnoop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_btbook_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_btbook_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_btbook_48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_btcherry.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_btdigginfo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_btdigginfo16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_diggbt_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_diggbt_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_donkey4you.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_extratorrent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_google.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_isohunt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_kickass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_limetorrents.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_monova.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_rarbg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_seedpeer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_ssc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_torlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_torrage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_torrenthound_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_torrenthound_48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_torrentkitty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_torrentsnet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_torrentus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_tpb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_tps.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_tzeu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_zoink.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\16px_loading_1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warning_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tick_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Server_Default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_btkitty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_btkitty_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_torrentdownloads.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_torrentdownload_ws.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_mp4ba_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_btscene.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_emule_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_ttmj.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_btlibrary_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_breadsearch_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon_breadsearch_11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\globe_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BRG.DB\BRG.DB.csproj">
+      <Project>{dfe95148-00bd-4ce6-b175-8d62bbb6956e}</Project>
+      <Name>BRG.DB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BRG.Engines\BRG.Engines.csproj">
+      <Project>{8c621dcb-0b28-412f-9a87-1b298bca2000}</Project>
+      <Name>BRG.Engines</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BRG\BRG.csproj">
+      <Project>{b6d3d7c9-0d2c-484e-80d6-cff6cdb992b2}</Project>
+      <Name>BRG</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FSLib.FileFormats.TorrentFile\src\FSLib.FileFormats.TorrentFile\FSLib.FileFormats.TorrentFile.csproj">
+      <Project>{d6c1c9c7-28b2-4530-8c07-9a0fe0c79225}</Project>
+      <Name>FSLib.FileFormats.TorrentFile</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="extension.fishlee.net">
+      <Version>1.5.1</Version>
+    </PackageReference>
+    <PackageReference Include="HtmlAgilityPack">
+      <Version>1.11.4</Version>
+    </PackageReference>
+    <PackageReference Include="Jumony.Core">
+      <Version>3.0.18</Version>
+    </PackageReference>
+    <PackageReference Include="network.fishlee.net">
+      <Version>2.3.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
