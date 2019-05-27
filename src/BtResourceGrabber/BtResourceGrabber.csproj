@@ -1,0 +1,544 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1A5131B8-A650-4236-887B-67B1CE5EA13F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BtResourceGrabber</RootNamespace>
+    <AssemblyName>BtResourceGrabber</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UpdateAssemblyVersion>False</UpdateAssemblyVersion>
+    <UpdateAssemblyFileVersion>False</UpdateAssemblyFileVersion>
+    <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
+    <AssemblyVersionSettings>
+    </AssemblyVersionSettings>
+    <AssemblyFileVersionSettings>
+    </AssemblyFileVersionSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>exeicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BetterListView, Version=3.15.0.0, Culture=neutral, PublicKeyToken=e6c91a3add447be2, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\BackgroundWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Service\ConfigFileLoader.cs" />
+    <Compile Include="Service\ResourceFilterProcessor.cs" />
+    <Compile Include="Service\RunworkEventArgs.cs" />
+    <Compile Include="Service\ServerManager.cs" />
+    <Compile Include="SR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourceOperation.cs" />
+    <Compile Include="UI\Controls\DownloadQueueItem.cs" />
+    <Compile Include="UI\Controls\EngineList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\EngineList.designer.cs">
+      <DependentUpon>EngineList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EngineSearchContext.cs" />
+    <Compile Include="UI\Controls\EngineStatus.cs">
+      <SubType>component</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\FunctionalUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\IListBoxExItem.cs" />
+    <Compile Include="UI\Controls\ListBoxEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\ListBoxExItem.cs" />
+    <Compile Include="UI\Controls\ListItemRenderer.cs" />
+    <Compile Include="UI\Controls\MultiEngineTab.cs">
+      <SubType>component</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\MultiEngineTabContent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\MultiEngineTabContent.Designer.cs">
+      <DependentUpon>MultiEngineTabContent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\Preview\ImagePreviewControl.cs">
+      <SubType>component</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\Preview\IPreviewHandler.cs" />
+    <Compile Include="UI\Controls\Preview\PreviewContext.cs" />
+    <Compile Include="UI\Controls\Preview\PreviewInfoLoading.cs">
+      <SubType>component</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\ProxyInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\ProxyInfo.Designer.cs">
+      <DependentUpon>ProxyInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\ResourceListView\ListView.cs">
+      <SubType>component</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\ResourceListView\ListView.Designer.cs">
+      <DependentUpon>ListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\ResourceListView\PaddingLoadingItem.cs" />
+    <Compile Include="UI\Controls\ResourceListView\ResourceListViewItem.cs" />
+    <Compile Include="UI\Controls\ResourceSelectionEventArgs.cs" />
+    <Compile Include="UI\Controls\ResourceListView\ResourceSorter.cs" />
+    <Compile Include="UI\Dialogs\ConfigUi\ConfigCenter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\ConfigUi\ConfigControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\ConfigUi\EnginePropertyConfig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\ConfigUi\EnginePropertyConfig.Designer.cs">
+      <DependentUpon>EnginePropertyConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\ConfigUi\FilterConfig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\ConfigUi\FilterConfig.Designer.cs">
+      <DependentUpon>FilterConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\ConfigUi\GeneralOption.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\ConfigUi\GeneralOption.Designer.cs">
+      <DependentUpon>GeneralOption.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\ConfigUi\HistoryOption.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\ConfigUi\HistoryOption.Designer.cs">
+      <DependentUpon>HistoryOption.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\ConfigUi\MarkOption.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\ConfigUi\MarkOption.Designer.cs">
+      <DependentUpon>MarkOption.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\ConfigUi\NetworkOption.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\ConfigUi\NetworkOption.Designer.cs">
+      <DependentUpon>NetworkOption.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\ConfigUi\RuleEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\ConfigUi\RuleEditor.Designer.cs">
+      <DependentUpon>RuleEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\DownloadQueue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\DownloadQueue.Designer.cs">
+      <DependentUpon>DownloadQueue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\Engines\EngineAvailabilityTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\Engines\EngineAvailabilityTest.Designer.cs">
+      <DependentUpon>EngineAvailabilityTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\Engines\EngineStatistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\Engines\EngineStatistics.Designer.cs">
+      <DependentUpon>EngineStatistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\FunctionalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\Messages\License.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\Messages\License.Designer.cs">
+      <DependentUpon>License.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\Messages\NewFeature.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\Messages\NewFeature.Designer.cs">
+      <DependentUpon>NewFeature.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\Messages\PromptTorrentInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\Messages\PromptTorrentInfo.Designer.cs">
+      <DependentUpon>PromptTorrentInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\Messages\SecurityWarning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\Messages\SecurityWarning.Designer.cs">
+      <DependentUpon>SecurityWarning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\ConfigUi\SelectMark.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\ConfigUi\SelectMark.Designer.cs">
+      <DependentUpon>SelectMark.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\TorrentContentVisualizer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\TorrentContentVisualizer.Designer.cs">
+      <DependentUpon>TorrentContentVisualizer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dialogs\WaitingDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dialogs\WaitingDialog.Designer.cs">
+      <DependentUpon>WaitingDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Utility.cs" />
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="SR.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SR.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Controls\EngineList.resx">
+      <DependentUpon>EngineList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Controls\MultiEngineTabContent.resx">
+      <DependentUpon>MultiEngineTabContent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Controls\ProxyInfo.resx">
+      <DependentUpon>ProxyInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Controls\ResourceListView\ListView.resx">
+      <DependentUpon>ListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\ConfigUi\ConfigCenter.resx">
+      <DependentUpon>ConfigCenter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\ConfigUi\EnginePropertyConfig.resx">
+      <DependentUpon>EnginePropertyConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\ConfigUi\FilterConfig.resx">
+      <DependentUpon>FilterConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\ConfigUi\GeneralOption.resx">
+      <DependentUpon>GeneralOption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\ConfigUi\HistoryOption.resx">
+      <DependentUpon>HistoryOption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\ConfigUi\MarkOption.resx">
+      <DependentUpon>MarkOption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\ConfigUi\NetworkOption.resx">
+      <DependentUpon>NetworkOption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\ConfigUi\RuleEditor.resx">
+      <DependentUpon>RuleEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\DownloadQueue.resx">
+      <DependentUpon>DownloadQueue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\Engines\EngineAvailabilityTest.resx">
+      <DependentUpon>EngineAvailabilityTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\Engines\EngineStatistics.resx">
+      <DependentUpon>EngineStatistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\Messages\License.resx">
+      <DependentUpon>License.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\Messages\NewFeature.resx">
+      <DependentUpon>NewFeature.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\Messages\PromptTorrentInfo.resx">
+      <DependentUpon>PromptTorrentInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\Messages\SecurityWarning.resx">
+      <DependentUpon>SecurityWarning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\ConfigUi\SelectMark.resx">
+      <DependentUpon>SelectMark.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\TorrentContentVisualizer.resx">
+      <DependentUpon>TorrentContentVisualizer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dialogs\WaitingDialog.resx">
+      <DependentUpon>WaitingDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\199.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\license.rtf" />
+    <None Include="Resources\sina_mb_logo_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\t_qq_com_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gear_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\globe_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\letter_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\File - Torrent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\down_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flag_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paste_plain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\label_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application_view_detail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trash_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="exeicon.ico" />
+    <None Include="Resources\stock_right.png" />
+    <None Include="Resources\rss.png" />
+    <None Include="Resources\plus_16.png" />
+    <None Include="Resources\clock_16.png" />
+    <None Include="Resources\trash_48.png" />
+    <None Include="Resources\shield_48.png" />
+    <None Include="Resources\shield_16.png" />
+    <None Include="Resources\label_48.png" />
+    <None Include="Resources\home_48.png" />
+    <None Include="Resources\home_16.png" />
+    <None Include="Resources\globe_48.png" />
+    <None Include="Resources\gear_48.png" />
+    <None Include="Resources\clock_48.png" />
+    <None Include="Resources\promotion.png" />
+    <None Include="Resources\favicon_qqshare.png" />
+    <None Include="Resources\favicon_xlshare.png" />
+    <None Include="Resources\favicon_yunpan.png" />
+    <None Include="Resources\favicon_bdp.png" />
+    <None Include="Resources\wait.png" />
+    <None Include="Resources\magnet.png" />
+    <None Include="Resources\multiresource.png" />
+    <None Include="Resources\minus_shield.png" />
+    <None Include="Resources\tick_shield.png" />
+    <None Include="Resources\plus_shield.png" />
+    <None Include="Resources\question_shield.png" />
+    <None Include="Resources\picture.png" />
+    <None Include="Resources\preview_load_failed.png" />
+    <None Include="Resources\favorite.png" />
+    <None Include="Resources\history.png" />
+    <None Include="Resources\refresh.png" />
+    <None Include="Resources\Cancel Red Button1.png" />
+    <None Include="Resources\Block.png" />
+    <None Include="Resources\131.png" />
+    <None Include="Resources\delete_16.png" />
+    <None Include="Resources\accept.png" />
+    <None Include="Resources\32px_loading_1.gif" />
+    <None Include="Resources\exclamation_shield.png" />
+    <None Include="Resources\cross_shield.png" />
+    <None Include="Resources\Emule.png" />
+    <None Include="Resources\gtk-cancel.png" />
+    <None Include="Resources\torrent_multi.png" />
+    <None Include="Resources\search_globe_24.png" />
+    <None Include="Resources\Magnifier - Plus.png" />
+    <None Include="Resources\chart_pie.png" />
+    <None Include="Resources\key_48.png" />
+    <None Include="Resources\down_161.png" />
+    <None Include="Resources\warning.png" />
+    <None Include="Resources\stock_repeat.png" />
+    <None Include="Resources\testtube.png" />
+    <None Include="Resources\spalsh.png" />
+    <None Include="Resources\Server_Default.png" />
+    <None Include="Resources\warning_32.png" />
+    <None Include="Resources\warning_16.png" />
+    <None Include="Resources\16-tool-a.png" />
+    <None Include="Resources\stock_proxy.png" />
+    <None Include="Resources\plugin.png" />
+    <None Include="Resources\add_16.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\edit.png" />
+    <None Include="Resources\Cancel Red Button.png" />
+    <None Include="Resources\Clear Green Button.png" />
+    <None Include="Resources\clear16.png" />
+    <None Include="Resources\document_word.png" />
+    <None Include="Resources\clear_folder.png" />
+    <None Include="Resources\clear_folder_open.png" />
+    <None Include="Resources\clear_folder_small.png" />
+    <None Include="Resources\zip.png" />
+    <None Include="Resources\image.png" />
+    <None Include="Resources\file.png" />
+    <None Include="Resources\badge_html.png" />
+    <None Include="Resources\video.png" />
+    <None Include="Resources\tick_16.png" />
+    <None Include="Resources\cou_16_next.png" />
+    <None Include="Resources\block_16.png" />
+    <None Include="Resources\16px_loading_1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BRG.DB\BRG.DB.csproj">
+      <Project>{dfe95148-00bd-4ce6-b175-8d62bbb6956e}</Project>
+      <Name>BRG.DB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BRG.Engines.BuildIn\BRG.Engines.BuildIn.csproj">
+      <Project>{f7bcb0d0-14ae-489a-a58e-3405c49958a0}</Project>
+      <Name>BRG.Engines.BuildIn</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BRG.Engines\BRG.Engines.csproj">
+      <Project>{8c621dcb-0b28-412f-9a87-1b298bca2000}</Project>
+      <Name>BRG.Engines</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BRG.Security\BRG.Security.csproj">
+      <Project>{6ff193e9-1703-455c-8670-6a2e1b47f093}</Project>
+      <Name>BRG.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BRG\BRG.csproj">
+      <Project>{b6d3d7c9-0d2c-484e-80d6-cff6cdb992b2}</Project>
+      <Name>BRG</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FSLib.FileFormats.TorrentFile\src\FSLib.FileFormats.TorrentFile\FSLib.FileFormats.TorrentFile.csproj">
+      <Project>{485f5283-11dc-4aed-ab57-af5fd8026d76}</Project>
+      <Name>FSLib.FileFormats.TorrentFile</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\plugins\BRT.CommonPaste.Plugin\BRT.CommonPaste.Plugin.csproj">
+      <Project>{7b60e19e-98fc-4354-8529-fd438f6973a8}</Project>
+      <Name>BRT.CommonPaste.Plugin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\plugins\BRT.DownloadConnector.Plugin\BRT.DownloadConnector.Plugin.csproj">
+      <Project>{594d0467-ca59-4e08-a7b9-d9c96cdfb335}</Project>
+      <Name>BRT.DownloadConnector.Plugin</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="extension.fishlee.net">
+      <Version>1.5.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.Data.SQLite.Core">
+      <Version>1.0.110</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
