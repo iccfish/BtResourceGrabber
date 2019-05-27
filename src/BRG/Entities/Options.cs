@@ -46,7 +46,6 @@ namespace BRG.Entities
 		bool _logDownloadHistory;
 		HashSet<string> _engineStandalone;
 		bool _enablePreviewIfPossible = true;
-		bool _enableCloudSaftyCheck = false;
 
 		public event PropertyChangedEventHandler PropertyChanged;
 
@@ -484,20 +483,6 @@ namespace BRG.Entities
 					return;
 				_enablePreviewIfPossible = value;
 				OnPropertyChanged(nameof(EnablePreviewIfPossible));
-			}
-		}
-
-		/// <summary>
-		/// 是否启用服务器安全校验
-		/// </summary>
-		public bool EnableCloudSaftyCheckOverride
-		{
-			get { return _enableCloudSaftyCheck; }
-			set
-			{
-				if (value == _enableCloudSaftyCheck) return;
-				_enableCloudSaftyCheck = value;
-				OnPropertyChanged(nameof(EnableCloudSaftyCheckOverride));
 			}
 		}
 
