@@ -35,10 +35,10 @@ namespace BtResourceGrabber
 			Application.SetCompatibleTextRenderingDefault(false);
 
 			IsRunning = true;
-			ServerManager.Instance.Init();
+			ServiceManager.Instance.Init();
 			AppContext.Instance.Init();
 			AppContext.Instance.DataContext.Init();
-			ServerManager.Instance.Connect();
+			ServiceManager.Instance.Connect();
 			var mainForm = new MainForm();
 			mainForm.CreateControl();
 
@@ -54,7 +54,7 @@ namespace BtResourceGrabber
 			Application.Run(mainForm);
 			IsShutodown = true;
 
-			ServerManager.Instance.Disconnect();
+			ServiceManager.Instance.Disconnect();
 			AppContext.Instance.Shutdown();
 		}
 	}

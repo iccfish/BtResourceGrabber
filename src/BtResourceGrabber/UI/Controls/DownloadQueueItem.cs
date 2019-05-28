@@ -212,7 +212,7 @@ namespace BtResourceGrabber.UI.Controls
 			if (!ResourceItem.IsHashLoaded)
 				return null;
 
-			var engines = ServerManager.Instance.DownloadServiceProviders.ToArray();
+			var engines = ServiceManager.Instance.DownloadServiceProviders.ToArray();
 			for (var i = 0; i < engines.Length; i++)
 			{
 				EngineIndex = i + 1;

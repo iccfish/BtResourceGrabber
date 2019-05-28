@@ -83,7 +83,7 @@ namespace BtResourceGrabber.UI.Controls
 		void Init()
 		{
 			ilProvider.Images.Add("", Properties.Resources.globe_16);
-			ServerManager.Instance.ResourceProviders.ForEach(s =>
+			ServiceManager.Instance.ResourceProviders.ForEach(s =>
 			{
 				s.DisabledChanged += SearchProvider_DisabledChanged;
 				if (s.Info.Icon != null)
@@ -93,15 +93,15 @@ namespace BtResourceGrabber.UI.Controls
 			});
 
 			//综合搜索
-			var multiSearchEngines = ServerManager.Instance.ResourceProviders.Where(s => s.SupportResourceInitialMark && !AppContext.Instance.Options.EngineStandalone.Contains(s.Info.Name)).ToArray();
+			var multiSearchEngines = ServiceManager.Instance.ResourceProviders.Where(s => s.SupportResourceInitialMark && !AppContext.Instance.Options.EngineStandalone.Contains(s.Info.Name)).ToArray();
 			if (multiSearchEngines.Length > 0)
 				new MultiEngineTab(this, multiSearchEngines);
 
-			ServerManager.Instance.ResourceProviders.Where(s => (!s.SupportResourceInitialMark || AppContext.Instance.Options.EngineStandalone.Contains(s.Info.Name)) && !s.Disabled).ForEach(s =>
+			ServiceManager.Instance.ResourceProviders.Where(s => (!s.SupportResourceInitialMark || AppContext.Instance.Options.EngineStandalone.Contains(s.Info.Name)) && !s.Disabled).ForEach(s =>
 			   {
 				   new MultiEngineTab(this, s);
 			   });
-			ServerManager.Instance.ActiveSearchServiceChanged += Instance_ActiveSearchServiceChanged;
+			ServiceManager.Instance.ActiveSearchServiceChanged += Instance_ActiveSearchServiceChanged;
 			Instance_ActiveSearchServiceChanged(null, null);
 
 			SelectedIndexChanged += EngineList_SelectedIndexChanged;
@@ -140,15 +140,15 @@ namespace BtResourceGrabber.UI.Controls
 		void EngineList_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			SelectedEngineUI.ReloadIfKeyChanged(SearchKey);
-			ServerManager.Instance.ActiveSearchService = SelectedEngineUI?.RawEngines[0];
+			ServiceManager.Instance.ActiveSearchService = SelectedEngineUI?.RawEngines[0];
 		}
 
 
 		void Instance_ActiveSearchServiceChanged(object sender, EventArgs e)
 		{
-			if (ServerManager.Instance.ActiveSearchService != null)
+			if (ServiceManager.Instance.ActiveSearchService != null)
 			{
-				var tab=TabPages.Cast<MultiEngineTab>().FirstOrDefault(s => s.EngineUI.RawEngines.Contains(ServerManager.Instance.ActiveSearchService));
+				var tab=TabPages.Cast<MultiEngineTab>().FirstOrDefault(s => s.EngineUI.RawEngines.Contains(ServiceManager.Instance.ActiveSearchService));
 				if (tab != null)
 					base.SelectedTab = tab;
 			}

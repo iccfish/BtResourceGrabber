@@ -65,13 +65,13 @@ namespace BtResourceGrabber.UI.Controls
 			//举报
 			InitReport();
 			//插件
-			ServerManager.Instance.InvokeRegisterContextMenuAddin(ctxMarkType, providers);
+			ServiceManager.Instance.InvokeRegisterContextMenuAddin(ctxMarkType, providers);
 			ctxMarkType.Opening += (s, e) =>
 			{
 				var items = lv.GetItemsForOperation();
 				var reses = items?.Select(x => x.Resource).ToArray();
 
-				ServerManager.Instance.InvokeCallOnOpeningContextMenu(ctxMarkType, reses);
+				ServiceManager.Instance.InvokeCallOnOpeningContextMenu(ctxMarkType, reses);
 			};
 		}
 

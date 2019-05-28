@@ -46,28 +46,6 @@
   <PropertyGroup>
     <ApplicationIcon>exeicon.ico</ApplicationIcon>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x86\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>x86</PlatformTarget>
-    <UseVSHostingProcess>false</UseVSHostingProcess>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
-    <OutputPath>bin\x86\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>x86</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <UseVSHostingProcess>false</UseVSHostingProcess>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BetterListView, Version=3.15.0.0, Culture=neutral, PublicKeyToken=e6c91a3add447be2, processorArchitecture=MSIL" />
     <Reference Include="System" />
@@ -94,7 +72,7 @@
     <Compile Include="Service\ConfigFileLoader.cs" />
     <Compile Include="Service\ResourceFilterProcessor.cs" />
     <Compile Include="Service\RunworkEventArgs.cs" />
-    <Compile Include="Service\ServerManager.cs" />
+    <Compile Include="Service\ServiceManager.cs" />
     <Compile Include="SR.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -515,14 +493,6 @@
     <ProjectReference Include="..\FSLib.FileFormats.TorrentFile\src\FSLib.FileFormats.TorrentFile\FSLib.FileFormats.TorrentFile.csproj">
       <Project>{485f5283-11dc-4aed-ab57-af5fd8026d76}</Project>
       <Name>FSLib.FileFormats.TorrentFile</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\plugins\BRT.CommonPaste.Plugin\BRT.CommonPaste.Plugin.csproj">
-      <Project>{7b60e19e-98fc-4354-8529-fd438f6973a8}</Project>
-      <Name>BRT.CommonPaste.Plugin</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\plugins\BRT.DownloadConnector.Plugin\BRT.DownloadConnector.Plugin.csproj">
-      <Project>{594d0467-ca59-4e08-a7b9-d9c96cdfb335}</Project>
-      <Name>BRT.DownloadConnector.Plugin</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

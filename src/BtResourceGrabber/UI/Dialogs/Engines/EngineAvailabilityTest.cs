@@ -28,8 +28,8 @@
 		{
 			using (lv.CreateBatchOperationDispatcher())
 			{
-				lv.Items.AddRange(ServerManager.Instance.ResourceProviders.Select(s => CreateItem(s, s.Info, s))
-					.Concat(ServerManager.Instance.DownloadServiceProviders.Select(s => CreateItem(s, s.Info, s)))
+				lv.Items.AddRange(ServiceManager.Instance.ResourceProviders.Select(s => CreateItem(s, s.Info, s))
+					.Concat(ServiceManager.Instance.DownloadServiceProviders.Select(s => CreateItem(s, s.Info, s)))
 					.ToArray()
 					);
 			}

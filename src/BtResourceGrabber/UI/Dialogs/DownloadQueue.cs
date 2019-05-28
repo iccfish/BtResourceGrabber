@@ -75,7 +75,7 @@ namespace BtResourceGrabber.UI.Dialogs
 				}
 			};
 			mMarkNone.Click += SetMarkHandler;
-			stProgressCurrent.Maximum = ServerManager.Instance.DownloadServiceProviders.Count();
+			stProgressCurrent.Maximum = ServiceManager.Instance.DownloadServiceProviders.Count();
 			stProgressCurrent.Visible = false;
 			stDownloadProgressTotal.Text = "0/0";
 			stStatus.Text = "当前没有任务等待下载";

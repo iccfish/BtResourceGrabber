@@ -19,7 +19,7 @@
 
 		private void EngineStatistics_Load(object sender, EventArgs e)
 		{
-			var mgr = ServerManager.Instance;
+			var mgr = ServiceManager.Instance;
 			var services = mgr.DownloadServiceProviders.Cast<IServiceBase>().Union(mgr.ResourceProviders).ToArray();
 			var list = new List<ListViewItem>(services.Length);
 

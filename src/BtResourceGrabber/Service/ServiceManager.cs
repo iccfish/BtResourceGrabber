@@ -18,15 +18,15 @@ namespace BtResourceGrabber.Service
 
 	using FSLib.Extension.FishLib;
 
-	public class ServerManager
+	public class ServiceManager
 	{
 		#region 单例模式
 
-		static ServerManager _instance;
+		static ServiceManager _instance;
 		static readonly object _lockObject = new object();
 		IResourceProvider _activeSearchService;
 
-		public static ServerManager Instance
+		public static ServiceManager Instance
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace BtResourceGrabber.Service
 					{
 						if (_instance == null)
 						{
-							_instance = new ServerManager();
+							_instance = new ServiceManager();
 						}
 					}
 				}
@@ -47,7 +47,7 @@ namespace BtResourceGrabber.Service
 
 		#endregion
 
-		private ServerManager()
+		private ServiceManager()
 		{
 
 		}
@@ -158,7 +158,7 @@ namespace BtResourceGrabber.Service
 			cat.Catalogs.Add(new AssemblyCatalog(System.Reflection.Assembly.GetExecutingAssembly()));
 			cat.Catalogs.Add(new DirectoryCatalog(root, "BR*.dll"));
 
-			var pluginDir = Path.Combine(root, "bin");
+			var pluginDir = Path.Combine(root, "Plugins");
 			if (Directory.Exists(pluginDir))
 				cat.Catalogs.Add(new DirectoryCatalog(pluginDir, "*.dll"));
 
